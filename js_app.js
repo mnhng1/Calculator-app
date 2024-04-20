@@ -92,7 +92,24 @@ buttonClick.forEach((button)=>{
 });
                 
         
-        
+window.addEventListener('keydown', function(event) {
+    const key = event.key; // 'a', '1', 'Shift', etc.
+    if (key === 'Backspace') {
+        const button = document.querySelector('button[value="AC"]');
+        if (button) {
+            button.click();
+        }
+    }else if (key === 'Enter') {
+        const button = document.querySelector('button[value="="]');
+        if (button) {
+            button.click();
+        }} else {
+        const button = document.querySelector(`button[value="${key}"]`);
+        if (button) {
+            button.click();
+        }
+    }
+});
 
 
 
