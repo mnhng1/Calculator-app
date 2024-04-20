@@ -51,6 +51,15 @@ buttonClick.forEach((button)=>{
     button.addEventListener("click", ()=>{
         
         if (operations.some(val=>button.value.includes(val))){
+            if (firstValue && secondValue) {
+                let tempFirst = firstValue;
+                let tempOperator = operator;
+                let tempSecond = secondValue;
+                displayFunction('AC');
+                firstValue = calculation(tempFirst, tempSecond, tempOperator);
+                secondValue = "";
+                displayFunction(firstValue);
+            }
             operator = button.value;
         } else if (button.value == ".") {
             if (operator == '') {
@@ -77,8 +86,8 @@ buttonClick.forEach((button)=>{
             firstValue = calculation(firstValue,secondValue,operator)
             displayFunction(firstValue)
         } else if (button.value == "=" && secondValue=="") {
-            
             displayFunction(firstValue)}
+            
         else if (operator == ''){
             firstValue += button.value;
         } else if (operator != ''){
